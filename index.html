@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      
-    <!-- Optional theme 
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    -->
-      
-    <title>Visual Vote</title>
-      <style>
-          
-          /* PAGE STYLE */
-          .container-fluid{
-              font-family: century gothic;
-          }
-          .content{
-              font-family: century gothic;
-          }
-          .dl-horizontal{
-              padding: 10px;
-              background-color: lightgrey;
-          }
-          
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      </style>  
-  </head>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+        <!-- FONT FOR iOS -->
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+        
+        <title>Visual Vote</title>
+        
+        <!-- PAGE STYLE -->
+        <style>
+            .container-fluid{
+                font-family: 'Century Gothic', 'Didact Gothic', 'sans-serif';
+            }
+            .content{
+                font-family: 'Century Gothic', 'Didact Gothic', 'sans-serif';
+            }
+            .dl-horizontal{
+                padding: 10px;
+                background-color: lightgrey;
+            }
+        </style> 
+        
+    </head>
     
     
   <body>
@@ -42,18 +40,30 @@
       
       <!-- NAVIGATION -->
       <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">visualvote.ch</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="index.html">Start</a></li>
-      <li><a href="links.html">Links</a></li>
-      <li><a href="dsi_zh.html">Durchsetzungsinitiative - ZH</a></li>
-      <li><a href="interface.html">Interface Prototype</a></li>
-    </ul>
-  </div>
-</nav>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html" style="color:white">visualvote<font color="red">.ch</font></a>
+                    <div class="visible-xs">
+                        <a class="navbar-brand" href="#">></a>
+                        <a class="navbar-brand" href="#" style="color:white">Start</a>
+                    </div>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navdropdown">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navdropdown">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Start</a></li>
+                        <li><a href="links.html">Links</a></li>
+                        <li><a href="dsi_zh.html">Durchsetzungsinitiative - ZH</a></li>
+                        <li><a href="interface.html">Interface Prototype</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
       
       <!-- CONTENT -->
       <div class="content" style="max-width: 1200px; margin: 0 auto; padding-left: 30px;">     
