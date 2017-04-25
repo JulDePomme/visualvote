@@ -72,11 +72,13 @@
       <li><a href="index.html">Start</a></li>
       <li><a href="links.html">Links</a></li>
       <li class="active"><a href="dsi_zh.html">Durchsetzungsinitiative - ZH</a></li>
-      <li><a href="#">...</a></li>
+      <li><a href="interface.html">Interface Prototype</a></li>
     </ul>
   </div>
 </nav>
       
+      
+      <div class="container">
       <!-- CONTENT -->
       <div class="content" style="max-width: 1200px; margin: 0 auto; padding-left: 30px;">     
           <p>Resultate für Durchsetzungsinitiative im Kanton Zürich</p>
@@ -100,6 +102,8 @@ var margin = {top: 10, right: 10, bottom: 10, left: 10},
  
 var formatNumber = d3.format(",.0f"),    // zero decimal places
     format = function(d) { return formatNumber(d) + " " + units; },
+    
+    //COLORS!!!
     color = d3.scale.category20();
  
 // append the svg canvas to the page
@@ -202,6 +206,7 @@ d3.json("test.json", function(error, graph) {
 });
  
 </script>
+      </div>
       
   </body>
 </html>
