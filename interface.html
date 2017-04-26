@@ -6,13 +6,13 @@
 
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+        
         <!-- FONT FOR iOS -->
         <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-
+        
         <title>Visual Vote</title>
         <style>
-         .container-fluid{
+          .container-fluid{
                 font-family: 'Century Gothic', 'Didact Gothic', 'sans-serif';
             }
             .content{
@@ -21,6 +21,9 @@
             .dl-horizontal{
                 padding: 10px;
                 background-color: lightgrey;
+            }
+            body{
+                margin-top: 65px;
             }
         </style>  
     </head>
@@ -34,7 +37,7 @@
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" 
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <div class="hidden-xs">
@@ -63,44 +66,49 @@
         </nav>
 
         <!-- CONTENT -->
-        <div class="content" style="max-width: 1200px; margin: 0 auto; padding-left: 30px;">     
+        <div class="content" style="max-width: 1200px; margin: 0 auto; padding-left: 15px; padding-right: 15px;">     
             
             <div class="row">
                 
                 <!-- FILTER 1: WAHLKREISE -->
-                <div class="col-xs-12 col-sm-6">
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                          <h1 class="panel-title">Wahlkreise</h1>
-                      </div>
-                      <div class="panel-body">
-                          
-                           <div id="form">
-                                <form>
-                                    <input type="checkbox" checked name="select-all" id="checkAll"/> Alle / Keine<br/>
-                                    <hr />
-                                    <input type="checkbox" checked name="checkbox-1" id="#"/> Affoltern<br/>
-                                    <input type="checkbox" checked name="checkbox-2" id="#"/> Andelfingen<br/>
-                                    <input type="checkbox" checked name="checkbox-3" id="#"/> Bülach<br/>
-                                    <input type="checkbox" checked name="checkbox-4" id="#"/> Dielsdorf<br/>
-                                    <input type="checkbox" checked name="checkbox-5" id="#"/> Dietikon<br/>
-                                    <input type="checkbox" checked name="checkbox-6" id="#"/> Hinwil<br/>
-                                    <input type="checkbox" checked name="checkbox-7" id="#"/> Horgen<br/>
-                                    <input type="checkbox" checked name="checkbox-8" id="#"/> Meilen<br/>
-                                    <input type="checkbox" checked name="checkbox-9" id="#"/> Pfäffikon<br/>
-                                    <input type="checkbox" checked name="checkbox-10" id="#"/> Uster<br/>
-                                    <input type="checkbox" checked name="checkbox-11" id="#"/> Stadt Winterthur<br/>
-                                    <input type="checkbox" checked name="checkbox-12" id="#"/> Winterthur Land<br/>
-                                    <input type="checkbox" checked name="checkbox-13" id="#"/> Zürich (Kreis 1 & 2)<br/>
-                                    <input type="checkbox" checked name="checkbox-14" id="#"/> Zürich (Kreis 3 & 9)<br/>
-                                    <input type="checkbox" checked name="checkbox-15" id="#"/> Zürich (Kreis 4 & 5)<br/>
-                                    <input type="checkbox" checked name="checkbox-16" id="#"/> Zürich (Kreis 6 & 10)<br/>
-                                    <input type="checkbox" checked name="checkbox-17" id="#"/> Zürich (Kreis 7 & 8)<br/>
-                                    <input type="checkbox" checked name="checkbox-18" id="#"/> Zürich (Kreis 11 & 12)<br/>
-                                    
-                                    
-                                </form>
-                            </div>
+                <div class="col-xs-12 col-sm-8">
+                        <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <h1 class="panel-title">Wahlkreise</h1>
+                              </div>
+                              <div class="panel-body">
+
+                                   <div id="form">
+                                        <form>
+                                            <div class="col-xs-12">
+                                            <input type="checkbox" checked name="select-all" id="checkAll"/> alle / keine<br/>
+                                                <hr/>
+                                            </div>
+                                            <div class="col-xs-6">
+                                            <input type="checkbox" checked name="checkbox-1" id="#"/> Affoltern<br/>
+                                            <input type="checkbox" checked name="checkbox-2" id="#"/> Andelfingen<br/>
+                                            <input type="checkbox" checked name="checkbox-3" id="#"/> Bülach<br/>
+                                            <input type="checkbox" checked name="checkbox-4" id="#"/> Dielsdorf<br/>
+                                            <input type="checkbox" checked name="checkbox-5" id="#"/> Dietikon<br/>
+                                            <input type="checkbox" checked name="checkbox-6" id="#"/> Hinwil<br/>
+                                            <input type="checkbox" checked name="checkbox-7" id="#"/> Horgen<br/>
+                                            <input type="checkbox" checked name="checkbox-8" id="#"/> Meilen<br/>
+                                            <input type="checkbox" checked name="checkbox-9" id="#"/> Pfäffikon<br/>
+                                            </div>
+                                            <div class="col-xs-6">
+                                            <input type="checkbox" checked name="checkbox-10" id="#"/> Uster<br/>
+                                            <input type="checkbox" checked name="checkbox-11" id="#"/> Stadt Winterthur<br/>
+                                            <input type="checkbox" checked name="checkbox-12" id="#"/> Winterthur Land<br/>
+                                            <input type="checkbox" checked name="checkbox-13" id="#"/> Zürich (Kreis 1 & 2)<br/>
+                                            <input type="checkbox" checked name="checkbox-14" id="#"/> Zürich (Kreis 3 & 9)<br/>
+                                            <input type="checkbox" checked name="checkbox-15" id="#"/> Zürich (Kreis 4 & 5)<br/>
+                                            <input type="checkbox" checked name="checkbox-16" id="#"/> Zürich (Kreis 6 & 10)<br/>
+                                            <input type="checkbox" checked name="checkbox-17" id="#"/> Zürich (Kreis 7 & 8)<br/>
+                                            <input type="checkbox" checked name="checkbox-18" id="#"/> Zürich (Kreis 11 & 12)<br/>
+                                            </div>
+
+                                        </form>
+                                    </div>
                           
                             <form action="#">
                                 <script>
@@ -111,15 +119,11 @@
                                 </script>  
                             </form>
                       </div>
-                      
-                      <div class="panel-footer">
-                          <a href="#">PANEL-FOOTER</a>
-                      </div>
                   </div>
               </div>
                 
                 <!-- FILTER 2: ABSOLUTE/RELATIVE STIMMEN -->
-              <div class="col-xs-12 col-sm-6">
+              <div class="col-xs-12 col-sm-4">
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           <h1 class="panel-title">Stimmenanteile</h1>
@@ -127,49 +131,47 @@
                       <div class="panel-body">
                            <div id="form">
                                 <form>
-                                    <input type="checkbox" checked name="checkbox-1" id="#"/> absolut
-                                    <input type="checkbox" checked name="checkbox-2" id="#"/> relativ
+                                    <div class="col-xs-6">
+                                        <input type="checkbox" checked name="checkbox-1" id="#"/> absolut
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input type="checkbox" checked name="checkbox-2" id="#"/> relativ
+                                    </div>
                                 </form>
                             </div>
-                      </div>
-                      <div class="panel-footer">
-                          <a href="#">PANEL-FOOTER</a>
                       </div>
                   </div>
               </div>
                 
                 <!-- FILTER 3: NICHTWAHL VS. RESULTAT -->
-              <div class="col-xs-12 col-sm-6">
+              <div class="col-xs-12 col-sm-4">
                   <div class="panel panel-default">
                       <div class="panel-heading">
-                          <h1 class="panel-title">Fokus auf Resultat / Nichtwahl</h1>
+                          <h1 class="panel-title">Fokus auf..</h1>
                       </div>
                       <div class="panel-body">
-                          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-                      </div>
-                      <div class="panel-footer">
-                          <a href="#">Read more...</a>
+                          <div class="col-xs-6">
+                          <button class="btn btn-default active">Resultat</button>
+                          </div>
+                          <div class="col-xs-6">
+                          <button class="btn btn-default active">Nichtwähler</button>
+                          </div>
                       </div>
                   </div>
               </div>
                 
-              <div class="col-xs-12 col-sm-6">
+              <div class="col-xs-12 col-sm-4">
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           <h1 class="panel-title">Filterbereich 4</h1>
                       </div>
                       <div class="panel-body">
-                          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-                      </div>
-                      <div class="panel-footer">
-                          <a href="#">Read more...</a>
+                          <p>whateva bla bla placeholder</p>
                       </div>
                   </div>
               </div>
-              
+              </div>
           </div>
-            
-        </div>
         
        
     </body>
