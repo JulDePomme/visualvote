@@ -138,7 +138,7 @@
                                                   var path = sankey.link();
 
                                                   // load the data
-                                                  d3.json("/data_json/zh_dsi.json", function(error, graph) {
+                                                  d3.json("zh_dsi.json", function(error, graph) {
 
                                                       var nodeMap = {};
                                                       graph.nodes.forEach(function(x) { nodeMap[x.name] = x; });
@@ -247,7 +247,7 @@
                                                   var path = sankey.link();
 
                                                   // load the data
-                                                  d3.json("/data json/zh_dsi.json", function(error, graph) {
+                                                  d3.json("zh_dsi.json", function(error, graph) {
 
                                                       var nodeMap = {};
                                                       graph.nodes.forEach(function(x) { nodeMap[x.name] = x; });

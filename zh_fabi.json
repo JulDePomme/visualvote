@@ -1,0 +1,328 @@
+{
+"links": [
+ {
+   "source": "Affoltern",
+   "target": "Ja",
+   "value": "11987"
+ },
+ {
+   "source": "Affoltern",
+   "target": "Nein",
+   "value": "8235"
+ },
+ {
+   "source": "Affoltern",
+   "target": "leer",
+   "value": "290"
+ },
+ {
+   "source": "Affoltern",
+   "target": "ungültig",
+   "value": "0"
+ },
+ {
+   "source": "Affoltern",
+   "target": "Nichtwahl",
+   "value": "12848"
+ },
+ {
+   "source": "Andelfingen",
+   "target": "Ja",
+   "value": "7194"
+ },
+ {
+   "source": "Andelfingen",
+   "target": "Nein",
+   "value": "6182"
+ },
+ {
+   "source": "Andelfingen",
+   "target": "leer",
+   "value": "238"
+ },
+ {
+   "source": "Andelfingen",
+   "target": "ungültig",
+   "value": "1"
+ },
+ {
+   "source": "Andelfingen",
+   "target": "Nichtwahl",
+   "value": "7782"
+ },
+ {
+   "source": "Bülach",
+   "target": "Ja",
+   "value": "24521"
+ },
+ {
+   "source": "Bülach",
+   "target": "Nein",
+   "value": "19918"
+ },
+ {
+   "source": "Bülach",
+   "target": "leer",
+   "value": "663"
+ },
+ {
+   "source": "Bülach",
+   "target": "ungültig",
+   "value": "2"
+ },
+ {
+   "source": "Bülach",
+   "target": "Nichtwahl",
+   "value": "38489"
+ },
+ {
+   "source": "Dielsdorf",
+   "target": "Ja",
+   "value": "13902"
+ },
+ {
+   "source": "Dielsdorf",
+   "target": "Nein",
+   "value": "13182"
+ },
+ {
+   "source": "Dielsdorf",
+   "target": "leer",
+   "value": "379"
+ },
+ {
+   "source": "Dielsdorf",
+   "target": "ungültig",
+   "value": "1"
+ },
+ {
+   "source": "Dielsdorf",
+   "target": "Nichtwahl",
+   "value": "23264"
+ },
+ {
+   "source": "Dietikon",
+   "target": "Ja",
+   "value": "14186"
+ },
+ {
+   "source": "Dietikon",
+   "target": "Nein",
+   "value": "10382"
+ },
+ {
+   "source": "Dietikon",
+   "target": "leer",
+   "value": "334"
+ },
+ {
+   "source": "Dietikon",
+   "target": "ungültig",
+   "value": "3"
+ },
+ {
+   "source": "Dietikon",
+   "target": "Nichtwahl",
+   "value": "22417"
+ },
+ {
+   "source": "Hinwil",
+   "target": "Ja",
+   "value": "17872"
+ },
+ {
+   "source": "Hinwil",
+   "target": "Nein",
+   "value": "15385"
+ },
+ {
+   "source": "Hinwil",
+   "target": "leer",
+   "value": "496"
+ },
+ {
+   "source": "Hinwil",
+   "target": "ungültig",
+   "value": "2"
+ },
+ {
+   "source": "Hinwil",
+   "target": "Nichtwahl",
+   "value": "26647"
+ },
+ {
+   "source": "Horgen",
+   "target": "Ja",
+   "value": "27234"
+ },
+ {
+   "source": "Horgen",
+   "target": "Nein",
+   "value": "16237"
+ },
+ {
+   "source": "Horgen",
+   "target": "leer",
+   "value": "668"
+ },
+ {
+   "source": "Horgen",
+   "target": "ungültig",
+   "value": "7"
+ },
+ {
+   "source": "Horgen",
+   "target": "Nichtwahl",
+   "value": "30356"
+ },
+ {
+   "source": "Meilen",
+   "target": "Ja",
+   "value": "26617"
+ },
+ {
+   "source": "Meilen",
+   "target": "Nein",
+   "value": "14803"
+ },
+ {
+   "source": "Meilen",
+   "target": "leer",
+   "value": "592"
+ },
+ {
+   "source": "Meilen",
+   "target": "ungültig",
+   "value": "1"
+ },
+ {
+   "source": "Meilen",
+   "target": "Nichtwahl",
+   "value": "23370"
+ },
+ {
+   "source": "Pfäffikon",
+   "target": "Ja",
+   "value": "12784"
+ },
+ {
+   "source": "Pfäffikon",
+   "target": "Nein",
+   "value": "10134"
+ },
+ {
+   "source": "Pfäffikon",
+   "target": "leer",
+   "value": "356"
+ },
+ {
+   "source": "Pfäffikon",
+   "target": "ungültig",
+   "value": "3"
+ },
+ {
+   "source": "Pfäffikon",
+   "target": "Nichtwahl",
+   "value": "15400"
+ },
+ {
+   "source": "Uster",
+   "target": "Ja",
+   "value": "25704"
+ },
+ {
+   "source": "Uster",
+   "target": "Nein",
+   "value": "17404"
+ },
+ {
+   "source": "Uster",
+   "target": "leer",
+   "value": "629"
+ },
+ {
+   "source": "Uster",
+   "target": "ungültig",
+   "value": "3"
+ },
+ {
+   "source": "Uster",
+   "target": "Nichtwahl",
+   "value": "33818"
+ },
+ {
+   "source": "Winterthur",
+   "target": "Ja",
+   "value": "39931"
+ },
+ {
+   "source": "Winterthur",
+   "target": "Nein",
+   "value": "20942"
+ },
+ {
+   "source": "Winterthur",
+   "target": "leer",
+   "value": "985"
+ },
+ {
+   "source": "Winterthur",
+   "target": "ungültig",
+   "value": "9"
+ },
+ {
+   "source": "Winterthur",
+   "target": "Nichtwahl",
+   "value": "43681"
+ },
+ {
+   "source": "Zürich",
+   "target": "Ja",
+   "value": "91942"
+ },
+ {
+   "source": "Zürich",
+   "target": "Nein",
+   "value": "30470"
+ },
+ {
+   "source": "Zürich",
+   "target": "leer",
+   "value": "1925"
+ },
+ {
+   "source": "Zürich",
+   "target": "ungültig",
+   "value": "17"
+ },
+ {
+   "source": "Zürich",
+   "target": "Nichtwahl",
+   "value": "104665"
+ }
+],
+    
+    
+"nodes": [
+{"name":"Affoltern"},
+{"name":"Andelfingen"},
+{"name":"Bülach"},
+{"name":"Dielsdorf"},
+{"name":"Dietikon"},
+{"name":"Hinwil"},
+{"name":"Horgen"},
+{"name":"Meilen"},
+{"name":"Pfäffikon"},
+{"name":"Uster"},
+{"name":"Winterthur"},
+{"name":"Zürich"},
+    
+{"name":"Ja"},
+{"name":"Nein"},
+{"name":"leer"},
+{"name":"ungültig"},
+{"name":"Nichtwahl"}
+]
+
+    
+}
