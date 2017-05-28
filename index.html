@@ -1,68 +1,104 @@
 <!DOCTYPE html>
 <html>
+
     <head>
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Compiled and minified CSS -->
+        <title>visualvote.ch | Datenvisualisierung | Abstimmungsresultate</title>
+
+        <!-- STYLES -->
+        <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        
+
+        <!-- CSS FÜR SUCHFORMULAR -->
+        <link rel="stylesheet" href="vorlagensuche.css">
+
         <!-- FONT FOR iOS -->
         <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-        
-        <title>Visual Vote</title>
-        
-        <!-- PAGE STYLE -->
+
+        <!-- STYLE FOR ANIMATED MENU ICON BARS-->
+        <link rel="stylesheet" href="navbaranimated.css">
+
         <style>
-            .container-fluid{
+            /* PAGE STYLE */
+            .container-fluid {
                 font-family: 'Century Gothic', 'Didact Gothic', 'sans-serif';
             }
-            .content{
+            .content {
                 font-family: 'Century Gothic', 'Didact Gothic', 'sans-serif';
             }
-            .dl-horizontal{
+            .container {
+                margin: 0;
+            }
+            .dl-horizontal {
                 padding: 10px;
                 background-color: lightgrey;
             }
-            body{
+            body {
                 margin-top: 65px;
             }
-        </style> 
-        
+            /* SANKEY STYLE */
+            .node rect {
+                cursor: move;
+                fill-opacity: .9;
+                shape-rendering: crispEdges;
+            }
+            .node text {
+                pointer-events: none;
+                text-shadow: 0 1px 0 #fff;
+            }
+            .link {
+                fill: none;
+                stroke: #000;
+                stroke-opacity: .2;
+            }
+            .link:hover {
+                stroke-opacity: .5;
+            }
+            body {
+                margin-top: 65px;
+            }
+        </style>
+
+        <!-- SCRIPTS -->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="vorlagensuche.js"></script>
+
     </head>
-    
-    
-  <body>
-      <!-- Link to jQuery 1.x -->
-      <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-      
-      <!-- Compiled and minified JavaScript -->
-      <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" 
-      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-      
-      
-      <!-- NAVIGATION -->
-      <nav class="navbar navbar-inverse navbar-fixed-top">
+
+
+    <body>
+
+        <!-- NAVIGATION -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
+
+                    <!-- RESPONSIVE NAVIGATION -->
                     <div class="hidden-xs">
-                        <a class="navbar-brand" href="index.html" style="color:white">visualvote<font color="red">.ch</font></a>
+                        <a class="navbar-brand" href="/" style="color:white">visualvote<font color="red">.ch</font></a>
                     </div>
                     <div class="visible-xs">
-                        <a class="navbar-brand" href="index.html">
-                            <font color="white">visualvote</font><font color="red">.ch</font>&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;<font color="white">Start</font></a>
+                        <a class="navbar-brand" href="/">
+                            <font color="white">visualvote</font>
+                            <font color="red">.ch</font>&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <font color="white">Visualisierung</font>
+                        </a>
                     </div>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navdropdown">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                            <span class="icon-bar top-bar"></span>
+                            <span class="icon-bar middle-bar"></span>
+                            <span class="icon-bar bottom-bar"></span>
                     </button>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navdropdown">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Start</a></li>
-                        <li><a href="links.html">Links</a></li>
+                        <li class="active"><a href="/">Visualisierung</a></li>
+                        <li><a href="about.html">Über</a></li>
                         <li><a href="zh_fabi.html">FABI - ZH</a></li>
                         <li><a href="zh_dsi.html">DSI - ZH</a></li>
                         <li><a href="interface.html">Interface Prototype</a></li>
@@ -70,15 +106,400 @@
                 </div>
             </div>
         </nav>
-      
-      <!-- CONTENT -->
-      <div class="content" style="max-width: 1200px; margin: 0 auto; padding-left: 15px; padding-right: 15px;">     
-          <p>This is a data visualization project.</p>
-          <p>Data from <a target="_blank" href="http://opendata.swiss">opendata.swiss</a></p>
-          <p>Assistance by <a target="_blank" href="http://www.statistik.zh.ch/internet/justiz_inneres/statistik/de/home.html">Statistisches Amt des Kanton Zürich</a></p>
-      </div>
-      
-      
-      
-  </body>
+
+        <!-- CONTENT -->
+        <div class="content" style="max-width: 1200px; margin: 0 auto; padding-left: 15px; padding-right: 15px;">
+
+            <div class="row">
+                <!-- SUCHFORMULAR -->
+                <!-- Source: https://codepen.io/adobewordpress/pen/gbewLV -->
+                <div class=container>
+
+
+                    <div class="panel panel-default" id="panelsearch">
+                        <div class="panel-heading">
+                            <span role="button">
+                                <h1 class="panel-title" data-target="#panel-1" data-toggle="collapse">Suche nach Vorlagen</h1>
+                            </span>
+                        </div>
+
+                        <div class="panel-collapse collapse" id="panel-1">
+                            <div class="panel-body" style="min-height: 200px; max-height: 400px; overflow-y: scroll;">
+
+                                <div class="form-group">
+                                    <input type="text" class="search form-control" placeholder="Suche">
+                                </div>
+
+                                <!-- SEARCH RESULTS -->
+                                <span class="counter pull-right"></span>
+                                <table class="table table-hover table-bordered results" style="overflow-y: scroll;">
+                                    <thead>
+                                        <tr class="active">
+                                            <th>ID</th>
+                                            <th>Datum</th>
+                                            <th class="col-xs-1 col-md-2">Typ/Art</th>
+                                            <th class="col-xs-6 col-md-8">Titel der Vorlage</th>
+                                        </tr>
+                                        <tr class="warning no-result">
+                                            <td colspan="12"><i class="fa fa-warning"></i> Kein Resultat</td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr onclick="load_json('data_json/2462regB.json', this)">
+                                            <td>2462</td>
+                                            <td>21.05.2017</td>
+                                            <td>Volksinitiative (kant.)</td>
+                                            <td>Kantonale Volksinitiative «Mehr Qualität – eine Fremdsprache an der Primarschule» (ABl 2015-08-28)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2461regB.json', this)">
+                                            <td>2461</td>
+                                            <td>21.05.2017</td>
+                                            <td>Obligatorisches Referendum (kant.)</td>
+                                            <td>Gesetz über die Integrierte Psychiatrie Winterthur – Zürcher Unterland AG (vom 5. Dezember 2016) (ABl 2016-12-16)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2460regB.json', this)">
+                                            <td>2460</td>
+                                            <td>21.05.2017</td>
+                                            <td>Obligatorisches Referendum (kant.)</td>
+                                            <td>Gesetz über die Kantonsspital Winterthur AG vom 31. Oktober 2016) (ABl 2016-11-11)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2459regB.json', this)">
+                                            <td>2459</td>
+                                            <td>21.05.2017</td>
+                                            <td>Obligatorisches Referendum (eidg.)</td>
+                                            <td>Energiegesetz (EnG) vom 30. September 2016 (BBl 2016, 7683)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2458regB.json', this)">
+                                            <td>2458</td>
+                                            <td>12.02.2017</td>
+                                            <td>Fakultatives Referendum (eidg.)</td>
+                                            <td>Bundesgesetz vom 17. Juni 2016 über steuerliche Massnahmen zur Stärkung der Wettbewerbsfähigkeit des Unternehmensstandorts Schweiz (Unternehmenssteuerreformgesetz III) (BBl 2016, 4937)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2457regB.json', this)">
+                                            <td>2457</td>
+                                            <td>12.02.2017</td>
+                                            <td>Obligatorisches Referendum (eidg.)</td>
+                                            <td>Bundesbeschluss vom 30. September 2016 über die Schaffung eines Fonds für die Nationalstrassen und den Agglomerationsverkehr (BBl 2016, 7587)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2456regB.json', this)">
+                                            <td>2456</td>
+                                            <td>12.02.2017</td>
+                                            <td>Obligatorisches Referendum (eidg.)</td>
+                                            <td>Bundesbeschluss vom 30. September 2016 über die erleichterte Einbürgerung von Personen der dritten Ausländergeneration (BBl 2016, 7581)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2455regB.json', this)">
+                                            <td>2455</td>
+                                            <td>27.11.2016</td>
+                                            <td>Volksinitiative (kant.)</td>
+                                            <td>Kantonale Volksinitiative «Schutz der Ehe» (ABl 2014-10-31)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2454regB.json', this)">
+                                            <td>2454</td>
+                                            <td>27.11.2016</td>
+                                            <td>Fakultatives Referendum (kant.)</td>
+                                            <td>Planungs- und Baugesetz (Änderung vom 29. Februar 2016; Umsetzung der Kulturlandinitiative) (ABl 2016-03-11)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2453regB.json', this)">
+                                            <td>2453</td>
+                                            <td>27.11.2016</td>
+                                            <td>Volksinitiative (eidg.)</td>
+                                            <td>Volksinitiative vom 16. November 2012 «Für den geordneten Ausstieg aus der Atomenergie (Atomausstiegsinitiative)» (BBl 2016, 1937)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2452regB.json', this)">
+                                            <td>2452</td>
+                                            <td>25.09.2016</td>
+                                            <td>Volksintiative (kant.)</td>
+                                            <td>Kantonale Volksinitiative: «Bezahlbare Kinderbetreuung für alle» (ABl 2013-11-22)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2451regB.json', this)">
+                                            <td>2451</td>
+                                            <td>25.09.2016</td>
+                                            <td>Fakultatives Referendum (eidg.)</td>
+                                            <td>Bundesgesetz vom 25. September 2015 über den Nachrichtendienst (Nachrichtendienstgesetz, NDG) (BBl 2015 7211)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2450regB.json', this)">
+                                            <td>2450</td>
+                                            <td>25.09.2016</td>
+                                            <td>Volksinitiative (eidg.)</td>
+                                            <td>Volksinitiative vom 17. Dezember 2013 «AHVplus: für eine starke AHV» (BBl 2015 9551)</td>
+                                        </tr>
+
+
+
+
+                                        <tr onclick="load_json('data_json/2407regB.json', this)">
+                                            <td>2407</td>
+                                            <td>09.02.2014</td>
+                                            <td>Obligatorisches Referendum (kant.)</td>
+                                            <td>Planungs- und Baugesetz (PBG) (Änderung vom 19. August 2013; Zonen mit Anordnungen zur Nutzung erneuerbarer Energien) (ABl 2013-08-30)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2406regB.json', this)">
+                                            <td>2406</td>
+                                            <td>09.02.2014</td>
+                                            <td>Volksinitiative (eidg.)</td>
+                                            <td>Volksinitiative vom 14. Februar 2012 «Gegen Masseneinwanderung» (BBl 2013, 7351)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2405regB.json', this)">
+                                            <td>2405</td>
+                                            <td>09.02.2014</td>
+                                            <td>Volksinitiative (eidg.)</td>
+                                            <td>Volksinitiative vom 4. Juli 2011 «Abtreibungsfinanzierung ist Privatsache – Entlastung der Krankenversicherung durch Streichung der Kosten des Schwangerschaftsabbruchs aus der obligatorischen Grundversicherung» (BBl 2013, 7349)</td>
+                                        </tr>
+                                        <tr onclick="load_json('data_json/2404regB.json', this)">
+                                            <td>2404</td>
+                                            <td>09.02.2014</td>
+                                            <td>Obligatorisches Referendum (eidg.)</td>
+                                            <td>Bundesbeschluss vom 20. Juni 2013 über die Finanzierung und den Ausbau der Eisenbahninfrastruktur (direkter Gegenentwurf zur Volksinitiative &laquo;Für den öffentlichen Verkehr&raquo;) (BBl 2013, 4725): Ausbau der Eisenbahninfrastruktur</td>
+                                        </tr>
+
+
+
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="chart">
+
+                <!-- SCRIPTS FOR SANKEY -->
+                <script src="https://d3js.org/d3.v3.js"></script>
+                <script src="sankey.js"></script>
+                <script>
+                    var json_name;
+                    var last_dom;
+
+                    function load_json(p_name, p_dom) {
+
+                        if (last_dom != null) {
+                            last_dom.classList.remove("danger");
+                        }
+
+                        if (p_dom != null) {
+                            p_dom.classList.add("danger");
+                            last_dom = p_dom;
+                        }
+
+                        json_name = p_name;
+                        load_svg();
+                    }
+
+                    function load_svg() {
+                        var units = "Stimmen";
+
+                        //width and height
+                        var margin = {
+                            top: 10,
+                            right: 10,
+                            bottom: 10,
+                            left: 10
+                        };
+
+                        var w = window.innerWidth,
+                            h = window.innerHeight;
+
+                        var width = document.getElementById("panelsearch").offsetWidth;
+                        var aspect = h > w ? 1.25 : 0.75;
+                        var height = width * aspect;
+
+                        var formatNumber = d3.format(",.0f"), // zero decimal places
+                            format = function(d) {
+                                return formatNumber(d) + " " + units;
+                            },
+
+                            //node colors
+                            color = d3.scale.ordinal()
+                            .domain(["Affoltern", "Andelfingen", "Bülach", "Dielsdorf", "Dietikon", "Hinwil", "Horgen", "Meilen", "Pfäffikon", "Uster", "Winterthur", "Zürich", "Ja", "Nein", "leer/ungültig", "Nichtwähler"])
+                            .range(["FFBB78", "#C49C94", "#8C564B", "#98DF8A", "#AEC7E8", "#FF7F0E", "#C5B0D5", "#2CA02C", "#FF9896", "#F7B6D2", "#D62728", "#1F77B4", "#2CA02C", "#D62728", "#7F7F7F", "#C7C7C7"]);
+
+                        // append the svg canvas to the page
+                        $("svg").remove();
+
+                        svg = d3.select("#chart").append("svg")
+                            .attr("id", "svg")
+                            .attr("width", width)
+                            .attr("height", height)
+                            .append("g");
+
+                        // set the sankey diagram properties
+                        var sankey = d3.sankey()
+                            .nodeWidth(36)
+                            .nodePadding(10)
+                            .size([width, height]);
+
+                        var path = sankey.link();
+
+                        // LOAD THE DATA
+                        d3.json(json_name, function(error, graph) {
+
+                            graph = graph.VORLAGEN[0]
+
+                            graph.nodes = [];
+
+                            node_leerungueltig = {
+                                name: "leer/ungültig"
+                            };
+                            graph.nodes.push(node_leerungueltig);
+
+                            node_ja = {
+                                name: "Ja"
+                            };
+                            graph.nodes.push(node_ja);
+
+                            node_nein = {
+                                name: "Nein"
+                            };
+                            graph.nodes.push(node_nein);
+
+                            node_nichtwahler = {
+                                name: "Nichtwähler"
+                            };
+                            graph.nodes.push(node_nichtwahler);
+
+
+                            graph.links = [];
+
+                            for (i = 0; i < graph.WAHLKREISIDS.length; i++) {
+                                node = {
+                                    name: graph.WAHLKREISE[i]
+                                };
+                                graph.nodes.push(node);
+
+                                link = {
+                                    source: node,
+                                    target: node_ja,
+                                    value: graph.ANZAHL_JA_STIMMEN_WAHLKREIS[i]
+                                };
+                                graph.links.push(link);
+
+                                link = {
+                                    source: node,
+                                    target: node_nein,
+                                    value: graph.ANZAHL_NEIN_STIMMEN_WAHLKREIS[i]
+                                };
+                                graph.links.push(link);
+
+                                link = {
+                                    source: node,
+                                    target: node_leerungueltig,
+                                    value: graph.ANZAHL_LEERE_STIMMEN_WAHLKREIS[i] + graph.ANZAHL_UNGUELTIGE_STIMMEN_WAHLKREIS[i]
+                                };
+                                graph.links.push(link);
+
+                                link = {
+                                    source: node,
+                                    target: node_nichtwahler,
+                                    value: graph.STIMMBERECHTIGTE[i] - graph.ANZAHL_EINGELEGTE_STIMMEN_WAHLKREIS[i]
+                                };
+                                graph.links.push(link);
+                            }
+
+                            sankey
+                                .nodes(graph.nodes)
+                                .links(graph.links)
+                                // set layout iterations to (0) for alphabetical order of nodes 
+                                //original iteration value = (32)
+                                .layout(0);
+
+                            // add in the links
+                            var link = svg.append("g").selectAll(".link")
+                                .data(graph.links)
+                                .enter().append("path")
+                                .attr("class", "link")
+                                .attr("d", path)
+                                .style("stroke-width", function(d) {
+                                    return Math.max(1, d.dy);
+                                })
+                                .sort(function(a, b) {
+                                    return b.dy - a.dy;
+                                });
+
+                            // add the link titles
+                            link.append("title")
+                                .text(function(d) {
+                                    return d.source.name + " → " + d.target.name + "\n" + format(d.value);
+                                });
+
+                            // add in the nodes
+                            var node = svg.append("g").selectAll(".node")
+                                .data(graph.nodes)
+                                .enter().append("g")
+                                .attr("class", "node")
+                                .attr("transform", function(d) {
+                                    return "translate(" + d.x + "," + d.y + ")";
+                                })
+                                .call(d3.behavior.drag()
+                                    .origin(function(d) {
+                                        return d;
+                                    })
+                                    .on("dragstart", function() {
+                                        this.parentNode.appendChild(this);
+                                    })
+                                    .on("drag", dragmove));
+
+                            // add the rectangles for the nodes
+                            node.append("rect")
+                                .attr("height", function(d) {
+                                    return d.dy;
+                                })
+                                .attr("width", sankey.nodeWidth())
+                                .style("fill", function(d) {
+                                    return d.color = color(d.name.replace(/ .*/, ""));
+                                })
+                                .style("stroke", function(d) {
+                                    return d3.rgb(d.color).darker(2);
+                                })
+                                .append("title")
+                                .text(function(d) {
+                                    return d.name + "\n" + format(d.value);
+                                });
+
+                            // add in the title for the nodes
+                            node.append("text")
+                                .attr("x", -6)
+                                .attr("y", function(d) {
+                                    return d.dy / 2;
+                                })
+                                .attr("dy", ".35em")
+                                .attr("text-anchor", "end")
+                                .attr("transform", null)
+                                .text(function(d) {
+                                    return d.name;
+                                })
+                                .filter(function(d) {
+                                    return d.x < width / 2;
+                                })
+                                .attr("x", 6 + sankey.nodeWidth())
+                                .attr("text-anchor", "start");
+
+                            // the function for moving the nodes
+                            function dragmove(d) {
+                                d3.select(this).attr("transform", "translate(" + (
+                                    d.x = Math.max(0, Math.min(width - d.dx, d3.event.x))
+                                ) + "," + (
+                                    d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))
+                                ) + ")");
+                                sankey.relayout();
+                                link.attr("d", path);
+                            }
+                        });
+                    }
+
+                    // reload sankey on window resize
+                    window.onresize = load_svg
+
+                    // default dataset
+                    load_json("data_json/2462regB.json", null)
+                </script>
+            </div>
+
+        </div>
+    </body>
+
 </html>
