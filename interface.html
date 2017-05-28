@@ -1,179 +1,415 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        
-        <!-- FONT FOR iOS -->
-        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-        
-        <title>Visual Vote</title>
-        <style>
-          .container-fluid{
-                font-family: 'Century Gothic', 'Didact Gothic', 'sans-serif';
-            }
-            .content{
-                font-family: 'Century Gothic', 'Didact Gothic', 'sans-serif';
-            }
-            .dl-horizontal{
-                padding: 10px;
-                background-color: lightgrey;
-            }
-            body{
-                margin-top: 65px;
-            }
-        </style>  
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- FONT FOR iOS -->
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+
+    <title>Visual Vote</title>
+
+    <style>
+        .container-fluid {
+            font-family: 'Century Gothic', 'Didact Gothic', 'sans-serif';
+        }
+        .content {
+            font-family: 'Century Gothic', 'Didact Gothic', 'sans-serif';
+        }
+        .dl-horizontal {
+            padding: 10px;
+            background-color: lightgrey;
+        }
+        body {
+            margin-top: 65px;
+        }
+    </style>
+
+    <!-- CSS FÜR SUCHFORMULAR -->
+    <link rel="stylesheet" href="vorlagensuche.css">
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- SCRIPT FÜR SUCHFORMULAR -->
+    <script src="vorlagensuche.js"></script>
+
+</head>
 
 
-    <body>
-        <!-- Link to jQuery 1.x -->
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<body>
 
-        <!-- Compiled and minified JavaScript -->
-        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" 
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <div class="hidden-xs">
-                        <a class="navbar-brand" href="index.html" style="color:white">visualvote<font color="red">.ch</font></a>
-                    </div>
-                    <div class="visible-xs">
-                        <a class="navbar-brand" href="index.html">
-                            <font color="white">visualvote</font><font color="red">.ch</font>&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;<font color="white">Interface</font></a>
-                    </div>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navdropdown">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="hidden-xs">
+                    <a class="navbar-brand" href="/" style="color:white">visualvote<font color="red">.ch</font></a>
                 </div>
+                <div class="visible-xs">
+                    <a class="navbar-brand" href="/">
+                        <font color="white">visualvote</font><font color="red">.ch</font>&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;<font color="white">Interface</font>
+                    </a>
+                </div>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navdropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
 
-                <div class="collapse navbar-collapse" id="navdropdown">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Start</a></li>
-                        <li><a href="links.html">Links</a></li>
-                        <li><a href="zh_fabi.html">FABI - ZH</a></li>
-                        <li><a href="zh_dsi.html">DSI - ZH</a></li>
-                        <li class="active"><a href="interface.html">Interface Prototype</a></li>
-                    </ul>
+            <div class="collapse navbar-collapse" id="navdropdown">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Visualisierung</a>
+                    </li>
+                    <li><a href="links.html">Links</a>
+                    </li>
+                    <li><a href="zh_fabi.html">FABI - ZH</a>
+                    </li>
+                    <li><a href="zh_dsi.html">DSI - ZH</a>
+                    </li>
+                    <li class="active"><a href="interface.html">Interface Prototype</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="content" style="max-width: 1200px; margin: 0 auto; padding-left: 15px; padding-right: 15px;">
+
+        <div class="row">
+
+            <!-- SUCHFORMULAR -->
+            <!-- Source: https://codepen.io/adobewordpress/pen/gbewLV -->
+            <div class=container>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span role="button">
+                            <h1 class="panel-title" data-target="#panel-1" data-toggle="collapse">Suche nach Vorlagen</h1>
+                        </span>
+                    </div>
+                    <div class="panel-collapse collapse" id="panel-1">
+                    <div class="panel-body" style="min-height: 200px; max-height: 400px; overflow-y: scroll;">
+
+
+                        <div class="form-group">
+                            <input type="text" class="search form-control" placeholder="Suche">
+                        </div>
+
+                        <!-- SEARCH RESULTS -->
+                        <span class="counter pull-right"></span>
+                        <table class="table table-hover table-bordered results" style="overflow-y: scroll;">
+                            <thead>
+                                <tr class="danger">
+                                    <th>ID</th>
+                                    <th>Datum</th>
+                                    <th class="col-xs-1 col-md-2">Typ/Art</th>
+                                    <th class="col-xs-6 col-md-8">Titel der Vorlage</th>
+                                    <th>Aktion</th>
+                                </tr>
+                                <tr class="warning no-result">
+                                    <td colspan="12"><i class="fa fa-warning"></i> Kein Resultat</td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>2404</td>
+                                    <td>09.02.2014</td>
+                                    <td>Obligatorisches Referendum (eidg.)</td>
+                                    <td>Bundesbeschluss vom 20. Juni 2013 über die Finanzierung und den Ausbau der Eisenbahninfrastruktur (direkter Gegenentwurf zur Volksinitiative &laquo;Für den öffentlichen Verkehr&raquo;) (BBl 2013, 4725): Ausbau der Eisenbahninfrastruktur</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2405</td>
+                                    <td>09.02.2014</td>
+                                    <td>Volksinitiative (eidg.)</td>
+                                    <td>Volksinitiative vom 4. Juli 2011 «Abtreibungsfinanzierung ist Privatsache – Entlastung der Krankenversicherung durch Streichung der Kosten des Schwangerschaftsabbruchs aus der obligatorischen Grundversicherung» (BBl 2013, 7349)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2406</td>
+                                    <td>09.02.2014</td>
+                                    <td>Volksinitiative (eidg.)</td>
+                                    <td>Volksinitiative vom 14. Februar 2012 «Gegen Masseneinwanderung» (BBl 2013, 7351)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2407</td>
+                                    <td>09.02.2014</td>
+                                    <td>Obligatorisches Referendum (kant.)</td>
+                                    <td>Planungs- und Baugesetz (PBG) (Änderung vom 19. August 2013; Zonen mit Anordnungen zur Nutzung erneuerbarer Energien) (ABl 2013-08-30)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+
+
+
+                                <tr>
+                                    <td>2450</td>
+                                    <td>25.09.2016</td>
+                                    <td>Volksinitiative (eidg.)</td>
+                                    <td>Volksinitiative vom 17. Dezember 2013 «AHVplus: für eine starke AHV» (BBl 2015 9551)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2451</td>
+                                    <td>25.09.2016</td>
+                                    <td>Fakultatives Referendum (eidg.)</td>
+                                    <td>Bundesgesetz vom 25. September 2015 über den Nachrichtendienst (Nachrichtendienstgesetz, NDG) (BBl 2015 7211)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2452</td>
+                                    <td>25.09.2016</td>
+                                    <td>Volksintiative (kant.)</td>
+                                    <td>Kantonale Volksinitiative: «Bezahlbare Kinderbetreuung für alle» (ABl 2013-11-22)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2453</td>
+                                    <td>27.11.2016</td>
+                                    <td>Volksinitiative (eidg.)</td>
+                                    <td>Volksinitiative vom 16. November 2012 «Für den geordneten Ausstieg aus der Atomenergie (Atomausstiegsinitiative)» (BBl 2016, 1937)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2454</td>
+                                    <td>27.11.2016</td>
+                                    <td>Fakultatives Referendum (kant.)</td>
+                                    <td>Planungs- und Baugesetz (Änderung vom 29. Februar 2016; Umsetzung der Kulturlandinitiative) (ABl 2016-03-11)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2455</td>
+                                    <td>27.11.2016</td>
+                                    <td>Volksinitiative (kant.)</td>
+                                    <td>Kantonale Volksinitiative «Schutz der Ehe» (ABl 2014-10-31)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2456</td>
+                                    <td>12.02.2017</td>
+                                    <td>Obligatorisches Referendum (eidg.)</td>
+                                    <td>Bundesbeschluss vom 30. September 2016 über die erleichterte Einbürgerung von Personen der dritten Ausländergeneration (BBl 2016, 7581)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2457</td>
+                                    <td>12.02.2017</td>
+                                    <td>Obligatorisches Referendum (eidg.)</td>
+                                    <td>Bundesbeschluss vom 30. September 2016 über die Schaffung eines Fonds für die Nationalstrassen und den Agglomerationsverkehr (BBl 2016, 7587)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2458</td>
+                                    <td>12.02.2017</td>
+                                    <td>Fakultatives Referendum (eidg.)</td>
+                                    <td>Bundesgesetz vom 17. Juni 2016 über steuerliche Massnahmen zur Stärkung der Wettbewerbsfähigkeit des Unternehmensstandorts Schweiz (Unternehmenssteuerreformgesetz III) (BBl 2016, 4937)</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Datum</td>
+                                    <td>Typ (Art)</td>
+                                    <td>Titel</td>
+                                    <td class="td-actions">
+                                        <a class="btn btn-default btn-xs" href="javascript:;">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Los!
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                        </div>
                 </div>
             </div>
-        </nav>
 
-        <!-- CONTENT -->
-        <div class="content" style="max-width: 1200px; margin: 0 auto; padding-left: 15px; padding-right: 15px;">     
-            
-            <div class="row">
-                
-                <!-- FILTER 1: WAHLKREISE -->
-                <div class="col-xs-12 col-sm-8">
-                        <div class="panel panel-default">
-                              <div class="panel-heading">
-                                  <h1 class="panel-title">Wahlkreise</h1>
-                              </div>
-                              <div class="panel-body">
 
-                                   <div id="form">
-                                        <form>
-                                            <div class="col-xs-12">
-                                            <input type="checkbox" checked name="select-all" id="checkAll"/> alle / keine<br/>
-                                                <hr/>
-                                            </div>
-                                            <div class="col-xs-6">
-                                            <input type="checkbox" checked name="checkbox-1" id="#"/> Affoltern<br/>
-                                            <input type="checkbox" checked name="checkbox-2" id="#"/> Andelfingen<br/>
-                                            <input type="checkbox" checked name="checkbox-3" id="#"/> Bülach<br/>
-                                            <input type="checkbox" checked name="checkbox-4" id="#"/> Dielsdorf<br/>
-                                            <input type="checkbox" checked name="checkbox-5" id="#"/> Dietikon<br/>
-                                            <input type="checkbox" checked name="checkbox-6" id="#"/> Hinwil<br/>
-                                            <input type="checkbox" checked name="checkbox-7" id="#"/> Horgen<br/>
-                                            <input type="checkbox" checked name="checkbox-8" id="#"/> Meilen<br/>
-                                            <input type="checkbox" checked name="checkbox-9" id="#"/> Pfäffikon<br/>
-                                            </div>
-                                            <div class="col-xs-6">
-                                            <input type="checkbox" checked name="checkbox-10" id="#"/> Uster<br/>
-                                            <input type="checkbox" checked name="checkbox-11" id="#"/> Stadt Winterthur<br/>
-                                            <input type="checkbox" checked name="checkbox-12" id="#"/> Winterthur Land<br/>
-                                            <input type="checkbox" checked name="checkbox-13" id="#"/> Zürich (Kreis 1 & 2)<br/>
-                                            <input type="checkbox" checked name="checkbox-14" id="#"/> Zürich (Kreis 3 & 9)<br/>
-                                            <input type="checkbox" checked name="checkbox-15" id="#"/> Zürich (Kreis 4 & 5)<br/>
-                                            <input type="checkbox" checked name="checkbox-16" id="#"/> Zürich (Kreis 6 & 10)<br/>
-                                            <input type="checkbox" checked name="checkbox-17" id="#"/> Zürich (Kreis 7 & 8)<br/>
-                                            <input type="checkbox" checked name="checkbox-18" id="#"/> Zürich (Kreis 11 & 12)<br/>
-                                            </div>
+            <!-- FILTER 1: WAHLKREISE -->
+            <div class="col-xs-12 col-sm-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Wahlkreise</h1>
+                    </div>
+                    <div class="panel-body">
 
-                                        </form>
-                                    </div>
-                          
-                            <form action="#">
-                                <script>
-                                    $("#checkAll").change(function () {
-                                        $("input:checkbox").prop('checked',
-                                        $(this).prop("checked"));  
-                                    });
-                                </script>  
+                        <div id="form">
+                            <form>
+                                <div class="col-xs-12">
+                                    <input type="checkbox" checked name="select-all" id="checkAll" /> alle / keine
+                                    <br/>
+                                    <hr/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="checkbox" checked name="checkbox-1" id="#" /> Affoltern
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-2" id="#" /> Andelfingen
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-3" id="#" /> Bülach
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-4" id="#" /> Dielsdorf
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-5" id="#" /> Dietikon
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-6" id="#" /> Hinwil
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-7" id="#" /> Horgen
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-8" id="#" /> Meilen
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-9" id="#" /> Pfäffikon
+                                    <br/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="checkbox" checked name="checkbox-10" id="#" /> Uster
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-11" id="#" /> Stadt Winterthur
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-12" id="#" /> Winterthur Land
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-13" id="#" /> Zürich (Kreis 1 & 2)
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-14" id="#" /> Zürich (Kreis 3 & 9)
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-15" id="#" /> Zürich (Kreis 4 & 5)
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-16" id="#" /> Zürich (Kreis 6 & 10)
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-17" id="#" /> Zürich (Kreis 7 & 8)
+                                    <br/>
+                                    <input type="checkbox" checked name="checkbox-18" id="#" /> Zürich (Kreis 11 & 12)
+                                    <br/>
+                                </div>
+
                             </form>
-                      </div>
-                  </div>
-              </div>
-                
-                <!-- FILTER 2: ABSOLUTE/RELATIVE STIMMEN -->
-              <div class="col-xs-12 col-sm-4">
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                          <h1 class="panel-title">Stimmenanteile</h1>
-                      </div>
-                      <div class="panel-body">
-                           <div id="form">
-                                <form>
-                                    <div class="col-xs-6">
-                                        <input type="checkbox" checked name="checkbox-1" id="#"/> absolut
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <input type="checkbox" checked name="checkbox-2" id="#"/> relativ
-                                    </div>
-                                </form>
-                            </div>
-                      </div>
-                  </div>
-              </div>
-                
-                <!-- FILTER 3: NICHTWAHL VS. RESULTAT -->
-              <div class="col-xs-12 col-sm-4">
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                          <h1 class="panel-title">Fokus auf..</h1>
-                      </div>
-                      <div class="panel-body">
-                          <div class="col-xs-6">
-                          <button class="btn btn-default active">Resultat</button>
-                          </div>
-                          <div class="col-xs-6">
-                          <button class="btn btn-default active">Nichtwähler</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-                
-              <div class="col-xs-12 col-sm-4">
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                          <h1 class="panel-title">Filterbereich 4</h1>
-                      </div>
-                      <div class="panel-body">
-                          <p>whateva bla bla placeholder</p>
-                      </div>
-                  </div>
-              </div>
-              </div>
-          </div>
-        
-       
-    </body>
+                        </div>
+
+                        <form action="#">
+                            <script>
+                                $("#checkAll").change(function() {
+                                    $("input:checkbox").prop('checked',
+                                        $(this).prop("checked"));
+                                });
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FILTER 2: ABSOLUTE/RELATIVE STIMMEN -->
+            <div class="col-xs-12 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Stimmenanteile</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div id="form">
+                            <form>
+                                <div class="col-xs-6">
+                                    <input type="checkbox" checked name="checkbox-1" id="#" /> absolut
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="checkbox" checked name="checkbox-2" id="#" /> relativ
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FILTER 3: NICHTWAHL VS. RESULTAT -->
+            <div class="col-xs-12 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Fokus auf..</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-xs-6">
+                            <button class="btn btn-default active">Resultat</button>
+                        </div>
+                        <div class="col-xs-6">
+                            <button class="btn btn-default active">Nichtwähler</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Filterbereich 4</h1>
+                    </div>
+                    <div class="panel-body">
+                        <p>whateva bla bla placeholder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
 </html>

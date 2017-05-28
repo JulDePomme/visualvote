@@ -64,10 +64,10 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <div class="hidden-xs">
-                        <a class="navbar-brand" href="index.html" style="color:white">visualvote<font color="red">.ch</font></a>
+                        <a class="navbar-brand" href="/" style="color:white">visualvote<font color="red">.ch</font></a>
                     </div>
                     <div class="visible-xs">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="/">
                             <font color="white">visualvote</font><font color="red">.ch</font>&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;<font color="white">FABI (ZH)</font></a>
                     </div>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navdropdown">
@@ -79,7 +79,7 @@
 
                 <div class="collapse navbar-collapse" id="navdropdown">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Start</a></li>
+                        <li><a href="/">Visualisierung</a></li>
                         <li><a href="links.html">Links</a></li>
                         <li class="active"><a href="zh_fabi.html">FABI - ZH</a></li>
                         <li><a href="zh_dsi.html">DSI - ZH</a></li>
@@ -115,8 +115,10 @@
               var formatNumber = d3.format(",.0f"),    // zero decimal places
                   format = function(d) { return formatNumber(d) + " " + units; },
         
-                  //COLORS!!!
-                  color = d3.scale.category20();
+                  //NODE COLORS
+              color = d3.scale.ordinal()
+                        .domain(["Affoltern", "Andelfingen", "Bülach", "Dielsdorf", "Dietikon", "Hinwil", "Horgen", "Meilen", "Pfäffikon", "Uster", "Winterthur", "Zürich", "Ja", "Nein", "leer/ungültig", "Nichtwähler"])
+                        .range(["FFBB78", "#C49C94", "#8C564B", "#98DF8A", "#AEC7E8", "#FF7F0E", "#C5B0D5", "#2CA02C", "#FF9896", "#F7B6D2", "#D62728", "#1F77B4", "#2CA02C", "#D62728", "#7F7F7F", "#C7C7C7"]);
  
               // append the svg canvas to the page
               var svg = d3.select("#chart").append("svg")
@@ -134,21 +136,63 @@
               var path = sankey.link();
  
               // load the data
-              d3.json("zh_fabi.json", function(error, graph) {
+              d3.json("2404regB.json", function(error, graph) {
+                  
+                  graph = graph.VORLAGEN[0]
  
-                  var nodeMap = {};
-                  graph.nodes.forEach(function(x) { nodeMap[x.name] = x; });
-                  graph.links = graph.links.map(function(x) {
+                  //var nodeMap = {};
+                  
+                  //graph.nodes.forEach(function(x) { nodeMap[x.name] = x; });
+                  
+                  /*graph.links = graph.links.map(function(x) {
                       return {
                           source: nodeMap[x.source],
                           target: nodeMap[x.target],
                           value: x.value
                       };
-                  });
+                  });*/
+                  
+                  graph.nodes = [];
+                  
+                  node_ja = {name: "Ja"};
+                  graph.nodes.push(node_ja);
+                  
+                  node_nein = {name: "Nein"};
+                  graph.nodes.push(node_nein);
+                  
+                  node_leerungueltig = {name: "leer/ungültig"};
+                  graph.nodes.push(node_leerungueltig);
+                  
+                  node_nichtwahler = {name: "Nichtwähler"};
+                  graph.nodes.push(node_nichtwahler);
+                  
+
+                  graph.links = [];
+                  
+                  for(i=0; i<graph.WAHLKREISIDS.length; i++) {
+                      node = {name: graph.WAHLKREISE[i]};
+                      graph.nodes.push(node);
+                      
+                      link = {source: node, target: node_ja, value: graph.ANZAHL_JA_STIMMEN_WAHLKREIS[i]};
+                      graph.links.push(link);
+                      
+                      link = {source: node, target: node_nein, value: graph.ANZAHL_NEIN_STIMMEN_WAHLKREIS[i]};
+                      graph.links.push(link);
+                      
+                      link = {source: node, target: node_leerungueltig, value: graph.ANZAHL_LEERE_STIMMEN_WAHLKREIS[i]+graph.ANZAHL_UNGUELTIGE_STIMMEN_WAHLKREIS[i]};
+                      graph.links.push(link);
+                      
+                      link = {source: node, target: node_nichtwahler, value: graph.STIMMBERECHTIGTE[i]-graph.ANZAHL_EINGELEGTE_STIMMEN_WAHLKREIS[i]};
+                      graph.links.push(link);
+                      
+                  }
+                  
                   sankey
                       .nodes(graph.nodes)
                       .links(graph.links)
-                      .layout(32);
+                      // set layout iterations to (0) for alphabetical order of nodes 
+                      //original iteration value = (32)
+                      .layout(0);
 
                   // add in the links
                   var link = svg.append("g").selectAll(".link")
@@ -214,6 +258,7 @@
                   }
               });
           </script>
+              </p>
       </div>
      </div> 
   </body>
